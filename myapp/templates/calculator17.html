@@ -1,0 +1,98 @@
+
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'calculator.css' %}">
+</head>
+
+<body>
+
+
+
+
+    <table  align="center" border="1" width="230px" height="300px" cellspacing="0" cellpadding="0">
+        
+        <tr>
+            <td  height="50px" colspan="4"><input id="displaybox" readonly class="textbox" type="text"></td>
+        </tr>
+        <tr>
+            <td><button onclick="symblz('+')" class="btn1">+</button></td>
+            <td><button onclick="symblz('-')" class="btn1">-</button></td>
+            <td><button onclick="symblz('*')" class="btn1">x</button></td>
+            <td><button onclick="symblz('/')" class="btnnew">/</button></td>
+            
+        </tr>
+        <tr>
+            <td><button onclick="numbutn('1')" class="btn1">1</button></td>
+            <td><button onclick="numbutn('2')" class="btn1">2</button></td>
+            <td><button onclick="numbutn('3')" class="btn1">3</button></td>
+            <td rowspan="4"><button onclick="result()" class="btnlong">=</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="numbutn('4')" class="btn1">4</button></td>
+            <td><button onclick="numbutn('5')" class="btn1">5</button></td>
+            <td><button onclick="numbutn('6')" class="btn1">6</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="numbutn('7')" class="btn1">7</button></td>
+            <td><button onclick="numbutn('8')" class="btn1">8</button></td>
+            <td><button onclick="numbutn('9')" class="btn1">9</button></td>
+        </tr><tr>
+            <td><button onclick="numbutn('0')" class="btn1">0</button></td>
+            <td><button onclick="numbutn('.')" class="btn1">.</button></td>
+            <td><button onclick="clearscrn()" class="btn1">C</button></td>
+        </tr>
+        
+     
+    </table>
+
+    <script>
+
+        function numbutn(num){
+
+            
+            document.getElementById('displaybox').value += num;
+        }
+
+        function symblz(sym){
+            oprn = sym
+            rem = Number(document.getElementById('displaybox').value);
+            document.getElementById('displaybox').value = "";
+
+        }
+
+        function result(){
+            cr = Number(document.getElementById('displaybox').value) 
+            if(oprn == "+"){
+                document.getElementById('displaybox').value =  rem+cr;
+            }else if(oprn == "-"){
+                document.getElementById('displaybox').value =  rem-cr;
+            }else if(oprn == "/"){
+                document.getElementById('displaybox').value =  rem/cr;
+            }else if(oprn == "*"){
+                document.getElementById('displaybox').value =  rem*cr;
+            }
+        }
+
+
+        function clearscrn(){
+            document.getElementById('displaybox').value = ""
+        }
+
+        
+         
+      
+    </script>
+
+</body>
+
+</html>

@@ -8,4 +8,4 @@ from django.http import HttpResponse
 
 
 def testfun1(request):
-    return render(request,'index.html')
+    return render(request,'calculator17.html')
