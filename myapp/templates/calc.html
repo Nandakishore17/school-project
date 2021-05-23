@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'calc.css' %}">
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="col-sm-12">
+
+
+            <div class="container">
+                <table class="table1" align="center" border="0px" cellspacing="0">
+                    <div class="dispbxx">
+                        <tr>
+                            <td colspan="4">
+                                <input readonly id="display" class=" first1 " type="text ">
+                            </td>
+                        </tr>
+                    </div>
+
+                    <tr>
+                        <td><button onclick="op('+')" class=" btnbtn colo ">+</button></td>
+                        <td>
+                            <button onclick="op('-')" class="btnbtn colo ">-</button>
+                        </td>
+                        <td>
+                            <button onclick="op('*')" class="btnbtn colo ">x</button>
+                        </td>
+                        <td>
+                            <button onclick="op('/')" class="btnbtn colo ">÷</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button onclick="setDigit(7)" class="btnbtn ">7</button>
+                        </td>
+                        <td>
+                            <button onclick="setDigit(8)" class="btnbtn ">8</button>
+                        </td>
+                        <td>
+                            <button onclick="setDigit(9)" class="btnbtn ">9</button>
+                        </td>
+                        <td rowspan="4 ">
+                            <button onclick="result()" class="btn2 ">=</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button onclick="setDigit(4)" class="btnbtn ">4</button>
+                        </td>
+                        <td>
+                            <button onclick="setDigit(5)" class="btnbtn ">5</button>
+                        </td>
+                        <td>
+                            <button onclick="setDigit(6)" class="btnbtn ">6</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button onclick="setDigit(1)" class=" btnbtn ">1</button>
+                        </td>
+                        <td>
+                            <button onclick="setDigit(2) " class="btnbtn ">2</button>
+                        </td>
+                        <td>
+                            <button onclick="setDigit(3) " class="btnbtn">3</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button onclick="setDigit(0)" class="btnbtn ">0</button>
+                        </td>
+                        <td>
+                            <button onclick="setDigit('.')" class="btnbtn ">.</button>
+                        </td>
+                        <td>
+                            <button onclick="clearScreen()" class="btnbtn ">c</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /////////////display num///////////
+
+        function setDigit(num) {
+            document.getElementById('display').value += num;
+        }
+        /////////////////////////////////////
+
+        ////////add,mul,div,///////////////////////////////
+        function op(oprn) {
+            symbl = oprn
+            rem = Number(document.getElementById('display').value)
+            document.getElementById('display').value = ""
+        }
+        function result() {
+            cr = Number(document.getElementById('display').value)
+            if (symbl == "+") {
+                document.getElementById('display').value = rem + cr;
+            } else if (symbl == "-") {
+                document.getElementById('display').value = rem - cr;
+            } else if (symbl == "*") {
+                document.getElementById('display').value = rem * cr;
+            } else if (symbl == "/") {
+                document.getElementById('display').value = rem / cr;
+            }
+
+
+        }
+        ////////////////////////////////////////////////////////////////
+
+        //////////clear//////////////////////////////
+        function clearScreen() {
+            document.getElementById('display').value = ""
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script>
+        function setDigit(num) {
+            document.getElementById('display').value += num;
+
+        }
+
+        function op() {
+            rem = Number(document.getElementById('display').value)
+                (document.getElementById('display').value) = " " -->
+    }
+    </script>
+
+
+
+
+</body>
+
+</html>

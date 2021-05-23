@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+    <title>Document</title>
+    
+</head>
+
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Create Account</h1>
+    </div>
+    <form name="validateform" class="form" action="" onsubmit="return validate()">
+        <div class="form-control">
+            <label for="">Username</label>
+            <input id="userbxx" placeholder="Enter username" type="text" name="usernamexx">
+            
+            <small  id="errorx" style="color: red;"></small>
+        </div>
+       
+        <div class="form-control">
+            <label for="">Email</label>
+            <input placeholder="Enter Email" type="text" name="emailxx">
+            <small style="color: red;" id="erroremail"></small>
+        </div>
+        <div class="form-control">
+            <label for="">Password</label>
+            <input placeholder="Enter Password" type="password" id="pass1">
+            <small style="color: red;" id="passpass"></small>
+        </div>
+        <div class="form-control">
+            <label for="">Re-enter Password </label>
+            <input placeholder="Enter Password" type="password" id="pass2">
+            <small style="color: red;" id="errormsgpw"></small>
+        </div>
+        <button class="btn1">Submit</button>
+       
+    </form>
+
+</div>
+
+<script>
+ 
+ function validate(){
+     ret = 
+    pass1a = document.getElementById("pass1").value;
+    pass2a = document.getElementById("pass2").value;
+    ename = document.forms["validateform"]["emailxx"].value 
+    fname = document.forms["validateform"]["usernamexx"].value;
+    regx = /^([a-zA-Z0-9\._]+)@([a-zA-Z0-9])+.([a-z]+)(.[a-z]+)?$/
+    rt = true
+    if(fname.length <= 5){
+        alert("Username is too short!");
+       
+        
+        document.getElementById('errorx').innerHTML = "Username must contain a minimum of 6 characters."
+        document.getElementById('userbxx').style.borderColor = "red"
+        
+        // document.getElementById("ertxt").innerHTML = "Must contain 5"
+        rt = false
+    }else if(ename.length  <= 5){   
+        // alert("oops...");
+        document.getElementById('erroremail').innerHTML = "Invalid E-mail ID"
+
+        rt = false
+    }else if (pass1a.length <= 4){
+        alert("Incorrect password(min 4 character)")
+        document.getElementById('passpass').innerHTML = "Enter password"
+        rt = false
+        
+    }else if (pass1a != pass2a){
+        alert("Incorrect password")
+
+        
+        document.getElementById('errormsgpw').innerHTML = "Password must be same"
+        rt = false
+
+    }
+    return rt
+    
+ }
+
+
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <form onsubmit="return formactn()" action="" method="post" name="validateform">
+
+        <input id="inputbox" placeholder="Enter name" name="fname">
+       
+        <button>click</button>
+        <h3 style="color: red;" id="sorry"></h3>
+    </form> -->
+
+    <!-- <script>
+        function formactn() {
+            frmname = document.forms['validateform']['fname'].value;
+            if (frmname.length <= 5) {
+                alert('Must contain five digits');
+                document.getElementById('sorry').innerHTML = "sorry"
+
+                return false;
+            }
+
+        }
+
+    </script> -->
+</body>
+
+</html>
